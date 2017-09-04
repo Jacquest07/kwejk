@@ -5,31 +5,47 @@ import pl.akademiakodu.kwejk.Gif;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Component
 public class GifDaoImpl implements GifDao {
 
-    public GifDaoImpl(){}
 
-    private static List<String> names = new ArrayList<>();
-    static {
-        names.add("android-explosion");
-        names.add("ben-and-mike");
-        names.add("book-dominos");
-        names.add("compiler-bot");
-        names.add("cowboy-coder");
-        names.add("infinite-andrew");
-    }
-        @Override
-        public List<Gif> findall() {
-        List<Gif> gifs = new ArrayList<>();
-        int i=1;
-                for(String name: names){
-            gifs.add(new Gif(name,"username"+i++));
+    public GifDaoImpl() {}
 
-                }
-            return gifs;
+    private static List<Gif> gifs = new ArrayList<>();
+
+    public static List<Gif> getGifs() {
+        return gifs;
     }
 
+    static
+    {
+        gifs.add(new Gif("android-explosion", "username1"));
+        gifs.add(new Gif("ben-and-mike", "username2"));
+        gifs.add(new Gif("book-dmonos", "username3"));
+        gifs.add(new Gif("compiler-bot", "username4"));
+        gifs.add(new Gif("cowboy-coder", "username5"));
+        gifs.add(new Gif("infinite-andrew", "username6"));
+    }
 
+    @Override
+    public List<Gif> findall()
+    {
+        return gifs;
+
+    }
+
+    @Override
+    public Gif findOne(String name)
+    {
+        for (Gif gif : gifs)
+        {
+            if (gif.getName() == name)
+            {
+                return gif;
+            }
+        }
+        return null;
+    }
 
 }

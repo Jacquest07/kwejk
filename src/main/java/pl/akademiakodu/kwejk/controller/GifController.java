@@ -7,23 +7,31 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import pl.akademiakodu.kwejk.Gif;
 import pl.akademiakodu.kwejk.dao.GifDao;
-
 import java.util.List;
+import org.springframework.web.bind.annotation.PathVariable;
+import pl.akademiakodu.kwejk.dao.GifDao;
+import pl.akademiakodu.kwejk.dao.GifDaoImpl;
+
 
 @Controller
-public class GifController {
-
+public class GifController
+{
 
     @Autowired
     private GifDao gifDao;
 
-
-
     @GetMapping("/")
-    public String home(@ModelAttribute List<Gif>, ModelMap modelMap){
+    public String home(ModelMap modelMap){
 
-        modelMap.addAttribute("gif",
+        modelMap.addAttribute("gifs", GifDaoImpl.getGifs());
         return "home";
+    }
+
+    @GetMapping("/gif/{name}")
+    public String searchResult(@PathVariable String name, ModelMap modelMap)
+    {
+        modelMap.addAttribute("gif", gifDao.findOne(name));
+        return "gif-details";
     }
 
 
