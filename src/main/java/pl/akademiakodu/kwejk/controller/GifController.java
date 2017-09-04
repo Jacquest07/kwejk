@@ -25,7 +25,7 @@ public class GifController
     @GetMapping("/gif/{name}")
     public String searchResult(@PathVariable String name, ModelMap modelMap)
     {
-        modelMap.addAttribute("gif", gifDao.findOne(name).getUrl());
+        modelMap.addAttribute("gif", gifDao.findOne(name));
         return "gif-details";
     }
 

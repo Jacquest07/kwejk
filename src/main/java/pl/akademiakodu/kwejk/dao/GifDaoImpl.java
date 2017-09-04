@@ -39,7 +39,7 @@ public class GifDaoImpl implements GifDao {
     {
         for (Gif gif : gifs)
         {
-            if (gif.getName() == name)
+            if (gif.getName().equals(name))
             {
                 return gif;
             }
