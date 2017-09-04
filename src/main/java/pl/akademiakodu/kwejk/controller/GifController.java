@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import pl.akademiakodu.kwejk.dao.GifDao;
 
-import javax.websocket.server.PathParam;
 
 @Controller
 public class GifController
@@ -23,7 +22,7 @@ public class GifController
     }
 
     @GetMapping("/gif/{name}")
-    public String searchResult(@PathVariable String name , ModelMap modelMap)
+    public String searchResult(@PathVariable String name, ModelMap modelMap)
     {
         modelMap.addAttribute("gif", gifDao.findOne(name));
         return "gif-details";
