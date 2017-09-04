@@ -22,7 +22,7 @@ public class GifDaoImpl implements GifDao {
     {
         gifs.add(new Gif("android-explosion", "username1"));
         gifs.add(new Gif("ben-and-mike", "username2"));
-        gifs.add(new Gif("book-dmonos", "username3"));
+        gifs.add(new Gif("book-dominos", "username3"));
         gifs.add(new Gif("compiler-bot", "username4"));
         gifs.add(new Gif("cowboy-coder", "username5"));
         gifs.add(new Gif("infinite-andrew", "username6"));
@@ -32,7 +32,6 @@ public class GifDaoImpl implements GifDao {
     public List<Gif> findall()
     {
         return gifs;
-
     }
 
     @Override

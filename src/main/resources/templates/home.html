@@ -45,8 +45,9 @@
     </div>
     <div class="gifs container">
         <div class="row">
-            <img src="${gifs/Gif.getUrl()}" th:each="gif: ${gifs}">
-
+            <div class="col s12" th:each="gif : ${gifs}">
+                <img th:src="@{'/gifs/'+${gif.getUrl()}}"/>
+            </div>
         </div>
     </div>
 
