@@ -9,14 +9,8 @@ import pl.akademiakodu.kwejk.dao.GifDao;
 public class GifController {
 
 
-
-
-
     @Autowired
     private GifDao gifDao;
-
-
-
 
 
 

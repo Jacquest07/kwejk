@@ -6,22 +6,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GifDaoImpl implements GifDao {
-    @Override
-    public List<Gif> findall() {
-        return null;
-    }
+
     public GifDaoImpl(){}
-    private static List<Gif> gif = new ArrayList<>();
+
+    private static List<String> names = new ArrayList<>();
     static {
-        gif.add(new Gif("Android Explosion", "Wacek"));
-        gif.add(new Gif("Ben and Mike", "Zdzisiek"));
-        gif.add(new Gif("Book Dominos", "Krzyś"));
-        gif.add(new Gif("Compiler Bot", "Ruda Grażyna"));
-        gif.add(new Gif("Cowboy Coder", "Miś Kobiś"));
-        gif.add(new Gif("Infinite Andrew", "Pan Tadeusz"));
+        names.add("android-explosion");
+        names.add("ben-and-mike");
+        names.add("book-dmonos");
+        names.add("compiler-bot");
+        names.add("cowboy-coder");
+        names.add("infinite-andrew");
+    }
+        @Override
+        public List<Gif> findall() {
+        List<Gif>  gifs = new ArrayList<>();
+        int i=1;
+                for(String name: names){
+            gifs.add(new Gif(name,"username"+i++));
 
-
-
+                }
+            return gifs;
     }
 
 
