@@ -33,20 +33,8 @@ public class GifController
     @PostMapping("/")
     public String search(@RequestParam String q, ModelMap modelMap)
     {
-        if(gifDao.findOne(q) == null)
-        {
-            ErrorMessage errorMessage = new ErrorMessage("Nie znaleziono określonego Gifa");
-            modelMap.addAttribute("message", errorMessage);
-            return "error-message";
-
-        }
-        else
-        {
             modelMap.addAttribute("gifs", gifDao.findOne(q));
             return "home";
-        }
-
-
     }
 
 
