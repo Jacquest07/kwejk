@@ -3,11 +3,9 @@ package pl.akademiakodu.kwejk.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import pl.akademiakodu.kwejk.ErrorMessage;
 import pl.akademiakodu.kwejk.dao.GifDao;
-import org.springframework.web.bind.annotation.PathVariable;
 
 
 @Controller
@@ -35,10 +33,22 @@ public class GifController
     @PostMapping("/")
     public String search(@RequestParam String q, ModelMap modelMap)
     {
-        modelMap.addAttribute("gifs", gifDao.findOne(q));
+        if(gifDao.findOne(q) == null)
+        {
+            ErrorMessage errorMessage = new ErrorMessage("Nie znaleziono określonego Gifa");
+            modelMap.addAttribute("message", errorMessage);
+            return "error-message";
 
-        return "home";
+        }
+        else
+        {
+            modelMap.addAttribute("gifs", gifDao.findOne(q));
+            return "home";
+        }
+
+
     }
+
 
     @GetMapping("/favorites")
     public String showFavorites(ModelMap modelMap)
