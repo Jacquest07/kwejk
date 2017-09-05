@@ -44,10 +44,10 @@
         </div>
     </div>
     <div class="gifs container">
-        <div class="row">
-            <img src="${gifs/Gif.getUrl()}" th:each="gif: ${gifs}">
+            <p th:each="gif : ${gifs}">
+            <img th:src="@{'/gifs/' + ${gif.name} + '.gif'}"/>
 
-        </div>
+        </p>
     </div>
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
