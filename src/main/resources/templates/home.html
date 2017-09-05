@@ -45,9 +45,10 @@
         <div class="row">
 
             <div class="col s12 l4" th:each="gif: ${gifs}">
-
-                <img th:src="@{'gifs/'+${gif.getUrl()}}"></div>
-        </div></div>
+                <a th:href="@{'gif/'+${gif.getName()}}">
+              <img th:src="@{'gifs/'+${gif.getUrl()}}"></a></div>
+         </div>
+    </div>
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
