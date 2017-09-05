@@ -5,7 +5,6 @@ import pl.akademiakodu.kwejk.Gif;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class GifDaoImpl implements GifDao {
@@ -23,9 +22,9 @@ public class GifDaoImpl implements GifDao {
     {
         gifs.add(new Gif("android-explosion", "username1"));
         gifs.add(new Gif("ben-and-mike", "username2"));
-        gifs.add(new Gif("book-dominos", "username3"));
+        gifs.add(new Gif("book-dominos", "username3", true));
         gifs.add(new Gif("compiler-bot", "username4"));
-        gifs.add(new Gif("cowboy-coder", "username5"));
+        gifs.add(new Gif("cowboy-coder", "username5", true));
         gifs.add(new Gif("infinite-andrew", "username6"));
     }
 
@@ -33,6 +32,17 @@ public class GifDaoImpl implements GifDao {
     public List<Gif> findAll()
     {
         return gifs;
+    }
+
+    @Override
+    public List<Gif> findFavorite()
+    {
+        List<Gif> list = new ArrayList<>();
+        for (Gif gif : gifs)
+        {
+            if(gif.isFavorite())list.add(gif);
+        }
+        return list;
     }
 
     @Override

@@ -18,7 +18,8 @@ public class GifController
     private GifDao gifDao;
 
     @GetMapping("/")
-    public String home(ModelMap modelMap){
+    public String home(ModelMap modelMap)
+    {
 
         modelMap.addAttribute("gifs", gifDao.findAll());
         return "home";
@@ -30,11 +31,19 @@ public class GifController
         modelMap.addAttribute("gif", gifDao.findOne(name));
         return "gif-details";
     }
+
     @PostMapping("/")
-    public String search(@RequestParam String q, ModelMap modelMap) {
+    public String search(@RequestParam String q, ModelMap modelMap)
+    {
         modelMap.addAttribute("gifs", gifDao.findOne(q));
 
         return "home";
+    }
 
-
-}}
+    @GetMapping("/favorites")
+    public String showFavorites(ModelMap modelMap)
+    {
+        modelMap.addAttribute("gifs", gifDao.findFavorite());
+        return "favorites";
+    }
+}
