@@ -14,11 +14,19 @@ public class CategoryDaoImpl implements CategoryDao {
 
     private static List<Category> categories = new ArrayList<>();
 
+    public static List<Category> getCategories() {
+        return categories;
+    }
+
+    public static void setCategories(List<Category> categories) {
+        CategoryDaoImpl.categories = categories;
+    }
+
     static
     {
-        categories.add(new Category(1, "animals"));
-        categories.add(new Category(2, "humans"));
-        categories.add(new Category(3, "science"));
+        categories.add(new Category(0, "animals"));
+        categories.add(new Category(1, "humans"));
+        categories.add(new Category(2, "science"));
     }
 
     @Override

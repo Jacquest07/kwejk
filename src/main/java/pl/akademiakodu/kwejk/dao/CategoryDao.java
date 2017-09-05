@@ -1,7 +1,6 @@
 package pl.akademiakodu.kwejk.dao;
 
 import pl.akademiakodu.kwejk.Category;
-import pl.akademiakodu.kwejk.Gif;
 
 import java.util.List;
 

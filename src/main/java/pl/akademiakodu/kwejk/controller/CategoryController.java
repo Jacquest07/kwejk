@@ -18,14 +18,14 @@ public class CategoryController
     @GetMapping("/categories")
     public String home(ModelMap modelMap){
 
-        modelMap.addAttribute("category", categoryDao.findAll());
+        modelMap.addAttribute("categories", categoryDao.findAll());
         return "categories";
     }
 
     @GetMapping("/categories/{name}")
     public String searchResult(@PathVariable String name, ModelMap modelMap)
     {
-        modelMap.addAttribute("category", categoryDao.findOne(name));
+        modelMap.addAttribute("categories", categoryDao.findOne(name));
         return "category";
     }
 
