@@ -46,7 +46,10 @@
 
             <div class="col s12 l4" th:each="gif: ${gifs}">
                 <a th:href="@{'gif/'+${gif.getName()}}">
-              <img th:src="@{'gifs/'+${gif.getUrl()}}"></a></div>
+              <img th:src="@{'gifs/'+${gif.getUrl()}}"></a>
+
+
+            </div>
          </div>
     </div>
 
