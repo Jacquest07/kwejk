@@ -5,6 +5,7 @@ import pl.akademiakodu.kwejk.Gif;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class GifDaoImpl implements GifDao {
@@ -46,5 +47,6 @@ public class GifDaoImpl implements GifDao {
         }
         return null;
     }
+
 
 }
