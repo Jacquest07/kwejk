@@ -29,10 +29,9 @@ public class GifDaoImpl implements GifDao {
     }
 
     @Override
-    public List<Gif> findall()
+    public List<Gif> findAll()
     {
         return gifs;
-
     }
 
     @Override
@@ -40,7 +39,7 @@ public class GifDaoImpl implements GifDao {
     {
         for (Gif gif : gifs)
         {
-            if (gif.getName() == name)
+            if (gif.getName().equals(name))
             {
                 return gif;
             }

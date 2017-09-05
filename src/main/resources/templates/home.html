@@ -41,14 +41,13 @@
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
     <div class="gifs container">
-            <p th:each="gif : ${gifs}">
-            <img th:src="@{'/gifs/' + ${gif.name} + '.gif'}"/>
+        <div class="row">
 
-        </p>
-    </div>
+            <div class="col s12 l4" th:each="gif: ${gifs}">
+
+                <img th:src="@{'gifs/'+${gif.getUrl()}}"></div>
+        </div></div>
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
