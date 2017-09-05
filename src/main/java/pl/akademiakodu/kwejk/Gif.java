@@ -27,4 +27,5 @@ private String username;
     public String getUrl(){
         return getName()+".gif";
     }
+
 }
