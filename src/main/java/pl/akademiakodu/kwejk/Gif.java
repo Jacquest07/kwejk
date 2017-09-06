@@ -62,4 +62,4 @@ public class Gif {
         return getName() + ".gif";
     }
 
-}
+    }

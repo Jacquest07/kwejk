@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pl.akademiakodu.kwejk.dao.CategoryDao;
 import org.springframework.web.bind.annotation.PathVariable;
 import pl.akademiakodu.kwejk.dao.GifDao;
+import org.springframework.web.bind.annotation.*;
+import pl.akademiakodu.kwejk.dao.CategoryDao;
 
 
 @Controller
@@ -19,7 +21,8 @@ public class CategoryController
     private CategoryDao categoryDao;
 
     @GetMapping("/categories")
-    public String home(ModelMap modelMap){
+    public String home(ModelMap modelMap)
+    {
 
         modelMap.addAttribute("categories", categoryDao.findAll());
         return "categories";
@@ -32,7 +35,6 @@ public class CategoryController
         return "category";
     }
 
-
     @GetMapping("/category/{id}")
     public String showCategory(@PathVariable Integer id, ModelMap modelMap)
     {
@@ -40,6 +42,5 @@ public class CategoryController
         modelMap.addAttribute("gifs", gifDao.findId(id));
         return "category";
     }
-
 
 }
