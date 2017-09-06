@@ -2,6 +2,7 @@ package pl.akademiakodu.kwejk.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,10 +35,15 @@ public class JsonController
     public List<Gif> gifsInCategory(@RequestParam Integer id) { return gifDao.findId(id);
     }
 
-
     @RequestMapping("/gifs{name}")
     public Gif gifJson(@RequestParam String q)
     {
         return gifDao.findOne(q);
+    }
+
+    @RequestMapping("/categories/{id}")
+    public Category categoryByIdJson(@PathVariable Integer id)
+    {
+        return categoryDao.findCategory(id);
     }
 }

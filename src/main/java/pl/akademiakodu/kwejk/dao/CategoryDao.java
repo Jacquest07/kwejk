@@ -8,6 +8,7 @@ public interface CategoryDao {
         List<Category> findAll();
         Category findOne(String name);
         Category showCategoryName(Integer id);
+        Category findCategory(Integer id);
     }
 
 
