@@ -1,8 +1,8 @@
 package pl.akademiakodu.kwejk;
 
 public class Gif {
-private String name;
-private String username;
+    private String name;
+    private String username;
 
     public Gif(String name, String username) {
         this.name = name;
@@ -24,8 +24,9 @@ private String username;
     public void setUsername(String username) {
         this.username = username;
     }
-    public String getUrl(){
-        return getName()+".gif";
+
+    public String getUrl() {
+        return getName() + ".gif";
     }
 
-}
+    }
