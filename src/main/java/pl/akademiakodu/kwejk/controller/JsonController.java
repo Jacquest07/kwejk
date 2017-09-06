@@ -30,6 +30,11 @@ public class JsonController
         return categoryDao.findAll();
     }
 
+    @RequestMapping("/category{id}")
+    public List<Gif> gifsInCategory(@RequestParam Integer id) { return gifDao.findId(id);
+    }
+
+    }
     @RequestMapping("/gifs{name}")
     public Gif gifJson(@RequestParam String q)
     {
