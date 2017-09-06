@@ -14,7 +14,7 @@
 <body>
 <div class="navbar-fixed">
     <nav>
-        <div class="container" th:include="/menu/menu.html :: menu-menu"></div>
+        <th:block th:replace="menu :: menu-menu">
     </nav>
 </div>
 <div class="search-bar container">
