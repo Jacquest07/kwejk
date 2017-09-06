@@ -7,8 +7,8 @@
 <body>
 
 
-
-<div class="container" th:fragment="menu-menu">
+<th:block th:fragment="menu-menu">
+<div class="container">
     <a th:href="@{/}" class="brand-logo">gif<span>.</span>lib</a>
     <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
@@ -25,5 +25,6 @@
         <li><a th:href="@{/favorites}">Favorites</a></li>
     </ul>
 </div>
+</th:block>
 </body>
 </html>
