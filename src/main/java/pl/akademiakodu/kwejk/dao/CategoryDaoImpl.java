@@ -47,4 +47,14 @@ public class CategoryDaoImpl implements CategoryDao {
         }
         return null;
     }
+    @Override
+    public Category showCategoryName(Integer id)
+    {
+        for (Category category : categories)
+        {
+            if(category.getId()==id)
+                return category;
+        }
+        return null;
+    }
 }

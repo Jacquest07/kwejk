@@ -1,12 +1,28 @@
 package pl.akademiakodu.kwejk;
 
 public class Gif {
-private String name;
-private String username;
-private boolean isFavorite;
+    private String name;
+    private String username;
+    private Integer id;
+    private boolean isFavorite;
 
-    public Gif(String name, String username, boolean isFavorite)
-    {
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Gif(String name, String username, Integer id, boolean isFavorite) {
+        this.name = name;
+        this.username = username;
+        this.id = id;
+        this.isFavorite = isFavorite;
+    }
+
+    public Gif(String name, String username, boolean isFavorite) {
         this.name = name;
         this.username = username;
         this.isFavorite = isFavorite;
@@ -34,18 +50,16 @@ private boolean isFavorite;
         this.username = username;
     }
 
-    public boolean isFavorite()
-    {
+    public boolean isFavorite() {
         return isFavorite;
     }
 
-    public void setFavorite(boolean favorite)
-    {
+    public void setFavorite(boolean favorite) {
         isFavorite = favorite;
     }
 
-    public String getUrl(){
-        return getName()+".gif";
+    public String getUrl() {
+        return getName() + ".gif";
     }
 
 }

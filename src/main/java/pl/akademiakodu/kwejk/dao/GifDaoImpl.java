@@ -20,12 +20,12 @@ public class GifDaoImpl implements GifDao {
 
     static
     {
-        gifs.add(new Gif("android-explosion", "username1"));
-        gifs.add(new Gif("ben-and-mike", "username2"));
-        gifs.add(new Gif("book-dominos", "username3", true));
-        gifs.add(new Gif("compiler-bot", "username4"));
-        gifs.add(new Gif("cowboy-coder", "username5", true));
-        gifs.add(new Gif("infinite-andrew", "username6"));
+        gifs.add(new Gif("android-explosion", "username1",2, false));
+        gifs.add(new Gif("ben-and-mike", "username2",0, false));
+        gifs.add(new Gif("book-dominos", "username3",2, true));
+        gifs.add(new Gif("compiler-bot", "username4",2, false));
+        gifs.add(new Gif("cowboy-coder", "username5",1, true));
+        gifs.add(new Gif("infinite-andrew", "username6",1, false));
     }
 
     @Override
@@ -56,6 +56,18 @@ public class GifDaoImpl implements GifDao {
             }
         }
         return null;
+    }
+
+    @Override
+    public List<Gif> findId(Integer id)
+    {
+        List<Gif> list = new ArrayList<>();
+        for (Gif gif : gifs)
+        {
+            if (gif.getId()==(id))
+            list.add(gif);
+        }
+        return list;
     }
 
 
