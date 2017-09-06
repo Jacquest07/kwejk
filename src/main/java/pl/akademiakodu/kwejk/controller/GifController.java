@@ -5,11 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.akademiakodu.kwejk.dao.GifDao;
-import org.springframework.web.bind.annotation.PathVariable;
 
 
 @Controller
@@ -20,7 +17,8 @@ public class GifController
     private GifDao gifDao;
 
     @GetMapping("/")
-    public String home(ModelMap modelMap){
+    public String home(ModelMap modelMap)
+    {
 
         modelMap.addAttribute("gifs", gifDao.findAll());
         return "home";
@@ -32,15 +30,18 @@ public class GifController
         modelMap.addAttribute("gif", gifDao.findOne(name));
         return "gif-details";
     }
+
     @PostMapping("/")
-    public String search(@RequestParam String q, ModelMap modelMap) {
-        modelMap.addAttribute("gifs", gifDao.findOne(q));
-
-        return "home";
-
-
-
-
+    public String search(@RequestParam String q, ModelMap modelMap)
+    {
+            modelMap.addAttribute("gifs", gifDao.findOne(q));
+            return "home";
     }
 
-}
+
+    @GetMapping("/favorites")
+    public String showFavorites(ModelMap modelMap)
+    {
+        modelMap.addAttribute("gifs", gifDao.findFavorite());
+        return "favorites";
+    }}

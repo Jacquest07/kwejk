@@ -1,4 +1,4 @@
-/* package pl.akademiakodu.kwejk.controller;
+ package pl.akademiakodu.kwejk.controller;
 
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
@@ -28,10 +28,8 @@ public class HelloController {
         }
 
         model.addAttribute("facebookProfile", facebook.userOperations().getUserProfile());
-        PagedList<Post> feed = facebook.feedOperations().getFeed();
-        model.addAttribute("feed", feed);
+
         return "/connect/hello";
     }
 
 }
-*/
